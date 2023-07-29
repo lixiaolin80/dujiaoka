@@ -55,11 +55,13 @@ class DujiaoBoot
         }
 
         // 禁止大陆访问
-        $country = $request->server->get('HTTP_CF_IPCOUNTRY');
-        if ('cn' == strtolower($country)) {
-            return response('不允许大陆访问');
+        $ban_cn = (bool) env('BAN_CN', false);
+        if ($ban_cn) {
+            $country = $request->server->get('HTTP_CF_IPCOUNTRY');
+            if ('cn' == strtolower($country)) {
+                return response('不允许大陆访问');
+            }
         }
-
         return $next($request);
     }
 }
