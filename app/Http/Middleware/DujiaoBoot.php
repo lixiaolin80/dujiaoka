@@ -53,6 +53,13 @@ class DujiaoBoot
             // 重新注册服务
             (new GeetestServiceProvider(app()))->register();
         }
+
+        // 禁止大陆访问
+        $country = $request->server->get('HTTP_CF_IPCOUNTRY');
+        if ('cn' == strtolower($country)) {
+            return response('不允许大陆访问');
+        }
+
         return $next($request);
     }
 }
