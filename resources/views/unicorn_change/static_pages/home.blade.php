@@ -27,6 +27,7 @@
         <div class="category">
             <div class="container">
                 <div class="row">
+                <!--
                     <div class="col-md-12">
                         <h3 class="text-center">
                                 <span style="vertical-align: inherit;">
@@ -40,6 +41,7 @@
                                 </span>
                         </p>
                     </div>
+                -->
                     <div class="col-md-12">
                         <div class="category-menus">
                                 <ul class="nav nav-pills  justify-content-center">
