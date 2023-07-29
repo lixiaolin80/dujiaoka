@@ -77,6 +77,13 @@ class OrderController extends BaseController
             $this->orderProcessService->setEmail($request->input('email'));
             // ip地址
             $this->orderProcessService->setBuyIP($request->getClientIp());
+
+            // 使用 cloudfare 的时候 获取源 ip
+            $client_ip_if_cf = $request->server->get('HTTP_CF_CONNECTING_IP');
+            if (!$client_ip_if_cf) {
+                $this->orderProcessService->setBuyIP($client_ip_if_cf);
+            }
+
             // 查询密码
             $this->orderProcessService->setSearchPwd($request->input('search_pwd', ''));
             // 创建订单
