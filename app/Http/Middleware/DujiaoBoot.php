@@ -59,7 +59,8 @@ class DujiaoBoot
         if ($ban_cn) {
             $country = $request->server->get('HTTP_CF_IPCOUNTRY');
             if ('cn' == strtolower($country)) {
-                return response('不允许大陆访问');
+                // return response('不允许大陆访问');
+                return response()->view('common/nginx');
             }
         }
         return $next($request);
