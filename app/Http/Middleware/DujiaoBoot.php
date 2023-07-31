@@ -60,7 +60,10 @@ class DujiaoBoot
             $country = $request->server->get('HTTP_CF_IPCOUNTRY');
             if ('cn' == strtolower($country)) {
                 // return response('不允许大陆访问');
-                return response()->view('common/nginx');
+                return response()->view('common/bancn', [
+                    'clientip'  => $request->server->get('HTTP_CF_CONNECTING_IP'),
+                    'country'   => $request->server->get('HTTP_CF_IPCOUNTRY')
+                ]);
             }
         }
         return $next($request);
