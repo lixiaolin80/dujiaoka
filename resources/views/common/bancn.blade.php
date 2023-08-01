@@ -16,7 +16,11 @@
     <div class="container text-center" style="padding-top: 100px;">
         <h1>Sorry!</h1>
         <div style="padding-top: 30px;"></div>
-        <p>Your IP  <em>{{ $clientip }}</em>  from  <em>{{ $country }}</em>  is unable to access our website.</p>
+        <p>Your IP</p>
+        <p><em>{{ $clientip }}</em></p>
+        <p>from</p>
+        <p><em>{{ $country }}</em></p>
+        <p>is unable to access our website.</p>
     </div>
 </body>
 
