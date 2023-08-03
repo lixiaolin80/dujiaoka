@@ -63,7 +63,7 @@ class DujiaoBoot
                 return response()->view('common/bancn', [
                     'clientip'  => $request->server->get('HTTP_CF_CONNECTING_IP'),
                     'country'   => $request->server->get('HTTP_CF_IPCOUNTRY')
-                ]);
+                ], 403);
             }
         }
         return $next($request);
